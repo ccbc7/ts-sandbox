@@ -21,6 +21,10 @@ re:
 down:
 	docker compose down --remove-orphans
 
+# デバッグ実行（引数でファイル指定: make debug f=sample.ts）
+debug:
+	docker compose exec app npx tsx --inspect=0.0.0.0:9229 $(f)
+
 # コンテナ内に入る
 sh:
 	docker compose exec app bash
